@@ -1,5 +1,12 @@
+name: PR
+
+on:
+  pull_request:
+    branches:
+      - main
+
 jobs:
-  docker-push:
+  docker-build-push:
     strategy:
       matrix:
         images: [k8s-helm-deploy-image, terraform-deploy-image, python-deploy-image, tinyproxy-image]
