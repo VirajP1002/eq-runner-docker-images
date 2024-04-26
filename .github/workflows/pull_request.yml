@@ -3,6 +3,7 @@ jobs:
     strategy:
       matrix:
         images: [k8s-helm-deploy-image, terraform-deploy-image, python-deploy-image, tinyproxy-image]
+        folders: [k8s-helm-deploy-image/Dockerfile, terraform-deploy-image/Dockerfile, python-deploy-image/Dockerfile, tinyproxy-image/Dockerfile]
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
@@ -14,7 +15,7 @@ jobs:
       - name: Build
         run: >
           docker build -t onsdigital/${{ matrix.images }}:$TAG
-          -t ${{ secrets.GAR_LOCATION }}/${{ secrets.GAR_PROJECT_ID }}/docker-images/${{ matrix.images }}:$TAG .
+          -t ${{ secrets.GAR_LOCATION }}/${{ secrets.GAR_PROJECT_ID }}/docker-images/${{ matrix.images }}:$TAG -f ${{ matrix.folders }} .
       - name: Push to Docker Hub
         run: |
           echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin

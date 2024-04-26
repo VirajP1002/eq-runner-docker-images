@@ -5,7 +5,7 @@ build-infrastructure-image:
 	docker build -t terraform-deploy-image:latest -f terraform-deploy-image/Dockerfile .
 
 build-submission-image:
-	docker build -t python-deploy-image:latest -f python-deploy-image/Dockerfile  .
+	docker build -t python-deploy-image:latest -f python-deploy-image/Dockerfile .
 
 build-tinyproxy-image:
 	docker build -t tinyproxy-image:latest -f tinyproxy-image/Dockerfile .
