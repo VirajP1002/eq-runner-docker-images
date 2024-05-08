@@ -1,3 +1,8 @@
+#
+# Dockerfile for k8s-helm
+#
+
+
 FROM gcr.io/google.com/cloudsdktool/cloud-sdk:alpine AS builder
 
 # Install gcloud auth plugin, kubectl and helm

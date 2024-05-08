@@ -1,3 +1,8 @@
+#
+# Dockerfile for python
+#
+
+
 FROM gcr.io/google.com/cloudsdktool/cloud-sdk:slim
 
 RUN apt-get update && apt-get install -y build-essential libssl-dev zlib1g-dev \
