@@ -2,10 +2,10 @@
 # Dockerfile for terraform
 #
 
-FROM gcr.io/google.com/cloudsdktool/cloud-sdk:alpine AS builder
+
 
 # Install gcloud auth plugin, kubectl and helm
-RUN apk --update --no-cache add curl
+RUN ap --update --no-cache add curl
 
 FROM alpine:3.19
 # Add gcloud to the path
